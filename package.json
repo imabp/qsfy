@@ -1,0 +1,34 @@
+{
+  "name": "qsfy",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "description": "A simple go-to for stringifying query parameters for URLs",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.{js,jsx,ts,tsx}\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepublishOnly" : "npm test && npm run lint",
+    "prepare" : "npm run build",
+    "preversion" : "npm run lint",
+    "version" : "npm run format && git add -A src",
+    "postversion" : "git push && git push --tags"
+
+  },
+  "keywords": ["url", "stringify", "parser", "formatter", "queryparam", "objectToURL"],
+  "author": "Abir | @imabp",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "jest": "^27.4.7",
+    "prettier": "^2.5.1",
+    "ts-jest": "^27.1.2",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.5.4"
+  }
+}
